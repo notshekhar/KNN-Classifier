@@ -7,6 +7,8 @@ let featureExtractor = ml5.featureExtractor('MobileNet', modelReady);
 let tf = false
 let i = new Image()
 let exampleAdded = false
+let counters = document.querySelectorAll('.count')
+let rc=0, gc=0, bc=0
 //playing video
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({
@@ -24,18 +26,24 @@ function modelReady(){
 }
 
 trainButton[0].onclick = () => {
+  rc++
+  counters[0].innerHTML = rc
   screen.drawImage(video, 0, 0, canvas.width, canvas.height)
   let url = canvas.toDataURL()
   i.src = url
   addFeature(i, 'red')
 }
 trainButton[1].onclick = () => {
+  gc++
+  counters[1].innerHTML = gc
   screen.drawImage(video, 0, 0, canvas.width, canvas.height)
   let url = canvas.toDataURL()
   i.src = url
   addFeature(i, 'green')
 }
 trainButton[2].onclick = () => {
+  bc++
+  counters[2].innerHTML = bc
   screen.drawImage(video, 0, 0, canvas.width, canvas.height)
   let url = canvas.toDataURL()
   i.src = url
