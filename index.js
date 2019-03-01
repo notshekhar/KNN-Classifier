@@ -17,6 +17,8 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   })
 }
 function modelReady(){
+  document.querySelector('.preload').style.display = "none"
+  document.querySelector('.body').style.display = "block"
   console.log('model loaded')
   tf = true
 }
